@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+
+<head>
+
+
+
+
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            
+            /**
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            
+            font-size: .8rem;
+            
+            background: #121212;
+            color: #FF4754;
+
+
+            margin: 0;
+            **/
+        }
+        
+        /**
+        h1 {
+            font-weight: 500;
+        }
+        **/
+        
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: 2px solid;
+            white-space: nowrap;
+            margin: 0 auto;
+            user-select: none;
+            
+            animation: 
+                typing 3.6s steps(30, end),
+                blink-caret 1s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+        
+        
+        section {
+            background: var(--color);
+            height: 100vh;
+        }
+
+
+        nav {
+            padding: 25px;
+            position: sticky;
+            top: 0;
+
+            background-color: #0C0F16;
+
+            display: grid;
+            grid-template-columns: 25% auto;
+            column-gap: 30%;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-around;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: opacity 200ms ease-in-out;
+            overflow: hidden;
+        }
+
+        nav ul li a:after {
+            content: "";
+            display: block;
+
+            width: 0;
+            height: 3px;
+            margin-top: 3px;
+            border-radius: 3px;
+            background-color: #FCB934;
+
+            transition: width .2s ease-in-out;
+
+
+
+
+        }
+
+
+        nav ul li a.current::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .heading {
+            text-align: center;
+
+        }
+
+        .heading span {
+            font-weight: 500;
+            font-size;
+            25px;
+            color: #fff;
+        }
+
+
+        main section h1 {
+            position: absolute;
+            top: 50%;
+            left: 30%;
+        }
+
+    </style>
+
+    <script>
+        const sections = [...document.querySelectorAll('section')];
+        const link = (id) => document.querySelector('a[href="#${ id }"]');
+
+        const inView = (element) => {
+            var top = element.offsetTop;
+            var height = element.offsetHeight;
+
+            while (element.offsetParent) {
+                element = element.offsetParent;
+                top += element.offsetTop;
+            }
+
+            return (
+                top < (window.pageYOffset + window.innerHeight) &&
+                (top + height) > window.pageYOffset
+            );
+        };
+
+        const init = () => {
+            function update() {
+                let next = false;
+
+                sections.forEach(section => {
+                    const current = link(section.id);
+
+                    if (inView(section) && !next) {
+                        current.classList.add('current');
+                        next = true;
+                    } else {
+                        current.classList.remove('current');
+
+                    }
+                });
+            }
+            update();
+            window.addEventListener('scroll', update);
+        }
+
+        init();
+
+    </script>
+</head>
+
+
+<body>
+
+    <nav>
+        <div class="heading">
+            <span> Nijat Ahadi Official WEB Site </span>
+        </div>
+
+
+        <ul>
+            <li>
+                <a href="#home"> Home </a>
+            </li>
+
+            <li>
+                <a href="#about"> About </a>
+            </li>
+
+            <li>
+                <a href="#resume"> Activity </a>
+            </li>
+
+            <li>
+                <a href="#contact"> Contact </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <main>
+
+
+        <section id="home" style="--color: #908B8B;">
+            
+            <div class="typewriter">
+
+            <h1> Welcome to Nijat Ahadi Official WEB Site </h1>
+            
+            </div>
+
+
+
+        </section>
+
+        <section id="about" style="--color: #ffab0e;">
+
+            <h2> Personal Information </h2>
+            <p> <b>Name:</b> Nijat </p>
+            <p> <b>Surname:</b> Ahadi </p>
+            <p> <b>Full Name:</b> Nijat Yusif Ahadi </p>
+            <p> <b>Born Date:</b> 1998 May 3 </p>
+            <p> <b>Born Place:</b> Azerbaijan, Lankaran </p>
+
+
+        </section>
+
+        <section id="activity" style="--color: #ff1576;">
+
+        </section>
+
+        <section id="contact" style="--color: #b700ff;">
+
+        </section>
+
+    </main>
+
+</body>
+
+
+
+</html>
